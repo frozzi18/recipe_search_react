@@ -9,31 +9,61 @@ class App extends Component {
   state ={
     recipes:recipes,
     url:"https://www.food2fork.com/api/search?key=2c07b23b970d91e87ac087c8053dab59",
-    details_id:35386
+    details_id:35384,
+    pageIndex: 1
   };
 
-  // async getRecipes(){
-  //   try{
-  //     const data = await fetch(this.state.url);
-  //     const jsonData =await data.json();
-  //     this.setState({
-  //       recipes:jsonData.recipes
-  //     })
-  //   } catch(error){
-  //     console.log(error);
-  //   } 
-  // }
+  async getRecipes(){
+    try{
+      const data = await fetch(this.state.url);
+      const jsonData =await data.json();
+      this.setState({
+        // recipes:jsonData.recipes
+        recipes:recipes
+      })
+    } catch(error){
+      console.log(error);
+    } 
+  }
 
-  // componentDidMount(){
-  //   this.getRecipes()
-  // }
+  componentDidMount(){
+    this.getRecipes()
+  }
+
+  displayPage = (index) => {
+    switch(index){
+      default:
+        case 1:
+          return (<RecipeList recipes={this.state.recipes} 
+          handleDetails={this.handleDetails}/>)
+        case 0:
+          return (<RecipeDetails 
+            id={this.state.details_id}
+            handleIndex={this.handleIndex}/>)
+    }
+  }
+
+  handleIndex = index => {
+    this.setState({
+      pageIndex:index
+    })
+  }
+
+  handleDetails = (index, id) => {
+    this.setState({
+      pageIndex: index,
+      details_id: id
+    })
+  }
+
+
+
   render(){
     // console.log(this.state.recipes)
 
     return (
-      <React.Fragment>
-        {/* <RecipeList recipes={this.state.recipes} /> */}
-        <RecipeDetails id={this.state.details_id}/>
+      <React.Fragment>        
+        {this.displayPage(this.state.pageIndex)}
       </React.Fragment>
     );
   }  
