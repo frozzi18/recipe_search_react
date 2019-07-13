@@ -28,7 +28,8 @@ export default class Recipe extends Component {
                         </div>
                         <div className="card-footer">
                             <button className="btn btn-primary text-capitalize"
-                            onClick={handleDetails}>
+                            onClick={()=>handleDetails(0,
+                                recipe_id)}>
                                 details
                             </button>
                             <a href={source_url}
