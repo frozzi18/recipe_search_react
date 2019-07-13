@@ -98,7 +98,6 @@ class App extends Component {
 
     return (
       <React.Fragment> 
-        <h1>TEEEEDDD</h1>       
         {this.displayPage(this.state.pageIndex)}
       </React.Fragment>
     );
