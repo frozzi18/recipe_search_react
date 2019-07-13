@@ -4,7 +4,7 @@ export default class RecipeSearch extends Component {
     render() {
         return (
             <React.Fragment>
-                Hello from search
+                <h1>Hello from search</h1> 
             </React.Fragment>
         )
     }
