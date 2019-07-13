@@ -7,9 +7,22 @@ export default class RecipeDetails extends Component {
 
         this.state = {
             recipe:recipe,
-            url:`https://www.food2fork.com/api/get?key=2c07b23b970d91e87ac087c8053dab5&rId=${
+            url:`https://www.food2fork.com/api/get?key=2c07b23b970d91e87ac087c8053dab59&rId=${
                 this.props.id
             }`             
+        }
+    }
+
+
+    async componentDidMount(){
+        try{
+        const data = await fetch(this.state.url);
+        const jsonData =await data.json();
+        this.setState({
+            recipe:jsonData.recipe
+        })
+        } catch(error){
+        console.log(error);
         }
     }
 
