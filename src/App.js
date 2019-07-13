@@ -97,7 +97,8 @@ class App extends Component {
     // console.log(this.state.recipes)
 
     return (
-      <React.Fragment>        
+      <React.Fragment> 
+        <h1>TEEEEDDD</h1>       
         {this.displayPage(this.state.pageIndex)}
       </React.Fragment>
     );
