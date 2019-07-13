@@ -1,5 +1,5 @@
 Website project:
-https://eloquent-brown-362957.netlify.com/
+https://react-search-recipe-app-18.netlify.com/.netlify.com/
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
