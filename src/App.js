@@ -30,8 +30,8 @@ class App extends Component {
       }
       else {
         this.setState(() => {
-          // return {recipes:jsonData.recipes}
-          return {recipes:recipes}
+          return {recipes:jsonData.recipes}
+          // return {recipes:recipes}
         })
       }
       
